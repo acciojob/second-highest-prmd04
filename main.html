@@ -1,48 +1,38 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+	<title>Second Highest</title>
 </head>
-
 <body>	
 	<script>
 		function secondHighest(arr) {
 			if (arr.length < 2) return -Infinity;
 
-		  let max = -Infinity;
-		  let smax = -Infinity;
+			let max = -Infinity;
+			let smax = -Infinity;
 
-		  for (let num of arr) {
-		    if (num > max) {
-		      smax = max;
-		      max = num;
-		    } 
-			else if (num < max && num > smax) {
-		      smax = num;
-	    }
-  }
+			for (let num of arr) {
+				if (num > max) {
+					smax = max;
+					max = num;
+				} else if (num < max && num > smax) {
+					smax = num;
+				}
+			}
 
-  return smax;
-}
-			
+			return smax === -Infinity ? "No second highest" : smax;
 		}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
+			var n = Number(prompt("Enter the number of elements"));
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				arr[i] = Number(prompt("Enter element " + (i + 1)));
 			}
-			alert(secondHighest(arr));
+			alert("Second highest: " + secondHighest(arr));
 		}
+
 		Main();
 	</script>
-
-    <script type="text/javascript" src="./script.js">
-</script>
-
 </body>
-
 </html>
